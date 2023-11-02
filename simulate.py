@@ -17,23 +17,27 @@ import util
 
 
 class VotingBooths:
-    """Class for representing a bank of voting booths.
+    """
+    Class for representing a bank of voting booths.
 
-    Attributes: None
+    Attributes
+    ----------
+    None
 
-    Methods:
-        is_booth_available: bool
-            is there at least one unoccupied booth
-        is_some_booth_occupied: bool
-            is there at least one occupied booth
-        enter_booth(v):
-            add a voter to a booth. requires a booth to be available.
-        time_next_free(): float
-            when will a booth be free next (only called when all the
-            booths are occupied)
-        exit_booth():
-             remove the next voter to depart from the booths and
-             return the voter and their departure_time.
+    Methods
+    -------
+    is_booth_available(): boolean
+        is there at least one unoccupied booth
+    is_some_booth_occupied(): boolean
+        is there at least one occupied booth
+    enter_booth(v): 
+        add a voter to a booth. requires a booth to be available.
+    time_next_free(): float
+        when will a booth be free next (only called when all the
+        booths are occupied)
+    exit_booth():
+        remove the next voter to depart from the booths and
+        return the voter and their departure_time.
     """
 
     def __init__(self, num_booths):
@@ -105,12 +109,15 @@ class Precinct:
     """
     Class for representing precincts.
 
-    Attributes: None
+    Attributes
+    ----------
+    None
 
-    Methods:
-        simulate(seed, voting_booths, impatience_threshold):
-            Simulate election day for the precinct using the
-            specified seed, voting_booths, and impatience threshold.
+    Methods
+    -------
+    simulate(seed, voting_booths, impatience_threshold):
+        Simulate election day for the precinct using the
+        specified seed, voting_booths, and impatience threshold.
     """
 
     def __init__(self, name, hours_open, num_voters, arrival_rate,
@@ -118,7 +125,7 @@ class Precinct:
         """
         Constructor for the Precinct class
 
-        Input:
+        Args:
             name: (str) Name of the precinct
             hours_open: (int) Hours the precinct will remain open
             num_voters: (int) Number of voters in the precinct
@@ -146,7 +153,7 @@ class Precinct:
             impatience_threshold: (int) the number of minutes an impatient voter
                 is willing to wait (inclusive)
 
-        Returns: list of Voters
+        Returns: (list of Voter) the list of Voters
         """
 
         # YOUR CODE HERE
@@ -168,7 +175,6 @@ def find_impatience_threshold(seed, precinct, num_booths, num_trials):
         num_trials: (int) the number of trials to run
 
     Returns: (int) the median threshold from the trials
-
     """
 
     assert num_trials > 0
